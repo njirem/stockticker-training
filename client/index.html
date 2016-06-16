@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Websocket test</title>
+    <style>
+        #ticker,
+        #chart {
+            position: relative;
+            float: left;
+            margin-left: 20px;
+        }
+        
+        #ticker {
+            margin-top: 50px;
+        }
+        
+        #chart {
+            width: 400px;
+            height: 200px;
+        }
+        
+        .delta {
+            color: red;
+            position: absolute;
+            top: 0;
+            left: 0;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="chart"></div>
+    <div id="ticker">
+        <h1 id="currentPriceElement">Connecting...</h1>
+    </div>
+
+    <script src="node_modules/rxjs/bundles/Rx.umd.js"></script>
+    <script src="node_modules/highcharts/highcharts.js"></script>
+    <script src="helpers.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>
