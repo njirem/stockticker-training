@@ -19,7 +19,7 @@ server.on('connection', log);
 // Logic
 const startPrice = 100;
 function calculatePrice(current) {
-    return Math.max(0, current * (1.025 - Math.random() / 20));
+    return Math.max(0, current * (1.035 - current / 10000 - Math.random() / 20));
 }
 Observable.timer(0, 100)
     .scan(calculatePrice, startPrice)

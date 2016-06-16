@@ -1,18 +1,10 @@
-let connection = Rx.Observable.webSocket('ws://localhost:9000')
-    .do(null, connectionLost)
-    .retry()
-    .share();
+let connection = Rx.Observable.webSocket('ws://localhost:9000');
 
-let price$ = connection
-    .pluck('price');
+let price$ = connection;
 
-let throttledPrice$ = price$
-    .throttleTime(2000)
-    .distinctUntilChanged();
+let throttledPrice$ = price$;
 
-let throttledDelta$ = throttledPrice$
-    .bufferCount(2, 1)
-    .map(([previous, current]) => current - previous);
+let throttledDelta$ = throttledPrice$;
 
 price$.subscribe(addPointToChart);
 throttledPrice$.subscribe(updatePrice);
